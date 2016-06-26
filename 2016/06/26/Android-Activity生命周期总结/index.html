@@ -7,25 +7,19 @@
   <title>Android Activity生命周期总结 | NoforEver</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Activity生命周期相关知识点的总结
-生命周期Activity标准生命周期流程图：
-生命周期中值得注意的几点
-onStart()和onResume(): 官方文档中对onCreate()的描述是: Called just before the activity becomes visible to the user. 而onResume()的描述为: Called just before th">
+生命周期Activity标准生命周期流程图：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Activity生命周期总结">
 <meta property="og:url" content="http://yoursite.com/2016/06/26/Android-Activity生命周期总结/index.html">
 <meta property="og:site_name" content="NoforEver">
 <meta property="og:description" content="Activity生命周期相关知识点的总结
-生命周期Activity标准生命周期流程图：
-生命周期中值得注意的几点
-onStart()和onResume(): 官方文档中对onCreate()的描述是: Called just before the activity becomes visible to the user. 而onResume()的描述为: Called just before th">
+生命周期Activity标准生命周期流程图：">
 <meta property="og:image" content="http://cl.ly/1o2x0p2g0816/Image%202016-01-21%20at%209.56.48%20%E4%B8%8B%E5%8D%88.png,">
-<meta property="og:updated_time" content="2016-06-26T07:02:40.000Z">
+<meta property="og:updated_time" content="2016-06-26T12:33:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Activity生命周期总结">
 <meta name="twitter:description" content="Activity生命周期相关知识点的总结
-生命周期Activity标准生命周期流程图：
-生命周期中值得注意的几点
-onStart()和onResume(): 官方文档中对onCreate()的描述是: Called just before the activity becomes visible to the user. 而onResume()的描述为: Called just before th">
+生命周期Activity标准生命周期流程图：">
 <meta name="twitter:image" content="http://cl.ly/1o2x0p2g0816/Image%202016-01-21%20at%209.56.48%20%E4%B8%8B%E5%8D%88.png,">
   
     <link rel="alternative" href="/atom.xml" title="NoforEver" type="application/atom+xml">
@@ -222,6 +216,7 @@ onStart()和onResume(): 官方文档中对onCreate()的描述是: Called just be
       
         <p>Activity生命周期相关知识点的总结</p>
 <h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>Activity标准生命周期流程图：<br><img src="http://cl.ly/1o2x0p2g0816/Image%202016-01-21%20at%209.56.48%20%E4%B8%8B%E5%8D%88.png," alt=""></p>
+<a id="more"></a>
 <h3 id="生命周期中值得注意的几点"><a href="#生命周期中值得注意的几点" class="headerlink" title="生命周期中值得注意的几点"></a>生命周期中值得注意的几点</h3><ul>
 <li><p><strong>onStart()和onResume()</strong>: 官方文档中对onCreate()的描述是: Called just before the activity becomes visible to the user. 而onResume()的描述为: Called just before the activity starts interacting with the user. 可以理解为onCreate()调用完成时Activity已处于可见状态, 但还无法进行交互, onResume()调用后Activity能接受用户输入等进行交互.</p>
 </li>
