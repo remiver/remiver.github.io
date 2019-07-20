@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Jayl&#39;s blog</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="http://blog.jayl.me/css/github-gist.min.css" rel="stylesheet">
+    <link href="http://blog.jayl.me/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="http://blog.jayl.me/img/apple-touch-icon.png">
+    <link rel="icon" href="http://blog.jayl.me/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="http://blog.jayl.me/index.xml" title="Jayl&#39;s blog">
+    
+    
+    
+  </head>
+  <body class="list home">
+    <header class="header">
+      <div class="wrap">
+        
+        <h1 class="logo"><a href="http://blog.jayl.me/">Jayl&#39;s blog</a></h1>
+        
+        
+      </div>
+    </header>
+    
+    <main class="main">
+
+
+
+
+
+
+
+
+<article class="first-entry">
+  <header class="entry-header">
+    <h2>TXZ插件开发说明</h2>
+  </header>
+  <section class="entry-content">
+   <p>TXZ插件开发文档 开发流程 新建插件项目  在开发分支下新建插件项目, 添加对TXZ_PLUGIN_SDK.jar的依赖
+compileOnly files(&#39;libs/TXZ_PLUGIN_SDK.jar&#39;)
+注: 不要添加对TXZComm的直接依赖, 避免误用TXZComm内被混淆的接口导致运行时的异常
+注2: TXZ_PLUGIN_SDK.jar的依赖使用CompileOnly方式, 不打入插件包, 插件需要引用其他外部类库时根据需要自行选择.
+ 修改插件项目编译配置(build.gradle)
+插件项目尽量与TXZCore使用同样的编译工具版本进行打包, 避免某些奇怪的问题, 另外, 建议使用默认的debug和release两个buildType, debug用于调试, release用于集成测试和最终打包.
+参考:
+android { compileSdkVersion rootProject.ext.compileSdkVersion buildToolsVersion rootProject.ext.buildToolsVersion lintOptions { abortOnError false } defaultConfig { minSdkVersion 15 rootProject.ext.targetSdkVersion versionCode 1 versionName &#34;1.0&#34; testInstrumentationRunner &#34;androidx.test.runner.AndroidJUnitRunner&#34; } buildTypes { debug { matchingFallbacks = [&#39;debug&#39;, &#39;release&#39;] minifyEnabled false buildConfigField(&#39;boolean&#39;, &#39;DEBUG_MODE&#39;, &#39;true&#39;) proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39; } release { matchingFallbacks = [&#39;debug&#39;, &#39;release&#39;] minifyEnabled true buildConfigField(&#39;boolean&#39;, &#39;DEBUG_MODE&#39;, &#39;false&#39;) proguardFiles getDefaultProguardFile(&#39;proguard-android....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.6.11</time>
+  </footer>
+  <a class="entry-link" href="http://blog.jayl.me/txz%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="http://blog.jayl.me/">Jayl&#39;s blog</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="http://blog.jayl.me/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="http://blog.jayl.me/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

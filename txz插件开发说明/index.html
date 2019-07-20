@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>TXZ插件开发说明 - Jayl&#39;s blog</title>
+    
+    <meta name="description" content="TXZ插件开发文档 开发流程 新建插件项目  在开发分支下新建插件项目, 添加对TXZ_PLUGIN_SDK.jar的依赖
+compileOnly files(&#39;libs/TXZ_PLUGIN_SDK.jar&#39;)
+注: 不要添加对TXZComm的直接依赖, 避免误用TXZComm内被混淆的接口导致运行时的异常
+注2: TXZ_PLUGIN_SDK.jar的依赖使用CompileOnly方式, 不打入插件包, 插件需要引用其他外部类库时根据需要自行选择.
+ 修改插件项目编译配置(build.gradle)
+插件项目尽量与TXZCore使用同样的编译工具版本进行打包, 避免某些奇怪的问题, 另外, 建议使用默认的debug和release两个buildType, debug用于调试, release用于集成测试和最终打包.
+参考:
+android { compileSdkVersion rootProject.ext.compileSdkVersion buildToolsVersion rootProject.ext.buildToolsVersion lintOptions { abortOnError false } defaultConfig { minSdkVersion 15 rootProject.ext.targetSdkVersion versionCode 1 versionName &quot;1.0&quot; testInstrumentationRunner &quot;androidx.test.runner.AndroidJUnitRunner&quot; } buildTypes { debug { matchingFallbacks = [&#39;debug&#39;, &#39;release&#39;] minifyEnabled false buildConfigField(&#39;boolean&#39;, &#39;DEBUG_MODE&#39;, &#39;true&#39;) proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39; } release { matchingFallbacks = [&#39;debug&#39;, &#39;release&#39;] minifyEnabled true buildConfigField(&#39;boolean&#39;, &#39;DEBUG_MODE&#39;, &#39;false&#39;) proguardFiles getDefaultProguardFile(&#39;proguard-android.">
+    <meta name="author" content="">
+    
+    <link href="http://blog.jayl.me/css/github-gist.min.css" rel="stylesheet">
+    <link href="http://blog.jayl.me/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="http://blog.jayl.me/img/apple-touch-icon.png">
+    <link rel="icon" href="http://blog.jayl.me/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="http://blog.jayl.me/index.xml" title="Jayl&#39;s blog">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="http://blog.jayl.me/">Jayl&#39;s blog</a></p>
+        
+        
+      </div>
+    </header>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">TXZ插件开发说明</h1>
+    <div class="post-meta">2019.6.11</div>
+  </header>
+  <div class="post-content">
+
+<h1 id="txz插件开发文档">TXZ插件开发文档</h1>
+
+<h2 id="开发流程">开发流程</h2>
+
+<h3 id="新建插件项目">新建插件项目</h3>
+
+<ol>
+<li>在开发分支下新建插件项目, 添加对TXZ_PLUGIN_SDK.jar的依赖<br />
+<code>compileOnly files('libs/TXZ_PLUGIN_SDK.jar')</code><br />
+<strong>注:</strong> 不要添加对TXZComm的直接依赖, 避免误用TXZComm内被混淆的接口导致运行时的异常<br />
+<strong>注2:</strong> TXZ_PLUGIN_SDK.jar的依赖使用CompileOnly方式, 不打入插件包, 插件需要引用其他外部类库时根据需要自行选择.<br /></li>
+
+<li><p>修改插件项目编译配置(build.gradle)<br />
+插件项目尽量与TXZCore使用同样的编译工具版本进行打包, 避免某些奇怪的问题, 另外, 建议使用默认的debug和release两个buildType, debug用于调试, release用于集成测试和最终打包.<br />
+参考:</p>
+
+<pre><code>android {
+compileSdkVersion rootProject.ext.compileSdkVersion
+buildToolsVersion rootProject.ext.buildToolsVersion
+
+lintOptions {
+    abortOnError false
+}
+
+defaultConfig {
+    minSdkVersion 15
+    rootProject.ext.targetSdkVersion
+    versionCode 1
+    versionName &quot;1.0&quot;
+    testInstrumentationRunner &quot;androidx.test.runner.AndroidJUnitRunner&quot;
+}
+
+buildTypes {
+    debug {
+        matchingFallbacks = ['debug', 'release']
+        minifyEnabled false
+        buildConfigField('boolean', 'DEBUG_MODE', 'true')
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+    release {
+        matchingFallbacks = ['debug', 'release']
+        minifyEnabled true
+        buildConfigField('boolean', 'DEBUG_MODE', 'false')
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+}
+
+}
+</code></pre></li>
+
+<li><p>修改插件项目的编译配置build.gradle, 添加插件编译和调试配置项</p>
+
+<pre><code>// 需要apply插件支持的gradle插件
+apply plugin: 'com.txznet.plugin.txzplugin'
+
+// 进行插件编译和调试配置
+txzPlugin {
+// 插件入口类, 根据实际项目修改
+pluginEntry 'com.txznet.plugin.adv1.TXZAdPlugin'
+
+// 插件宿主包名, 默认就是Core包名, 可以不填
+// hostPackageName 'com.txznet.txz
+// 插件打包输出路径, 不需要修改的话可以省略
+// outputDier 'output'
+
+// 插件调试配置
+test {
+    // 本地配合插件调试的Core版本号
+    // (填写测试设备上当前安装的Core版本号)
+    hostVersionName '2.14.8'
+    // 是否自动重启Core
+    // 启动包插件需要重启Core进行装载, 需要把此项置true
+    hostRestart true
+}
+}
+</code></pre></li>
+
+<li><p>添加release模式下打包的混淆配置, 参考(需要根据具体插件项目包名修改):</p>
+
+<pre><code>-keep class com.txznet.txz.plugin.** {*;}
+
+-keepnames class com.txznet.plugin.adv1.TXZAdPlugin
+-keep class * implements com.txznet.txz.plugin.IExecPluginV1 {
+public &lt;methods&gt;;
+}
+</code></pre></li>
+</ol>
+
+<h4 id="开始插件开发">开始插件开发</h4>
+
+<p>创建插件主类, 继承IExecPluginV1, IExecPluginVersion, 参考:</p>
+
+<pre><code class="language-java">public class TXZAdPlugin implements IExecPluginV1, IExecPluginVersion {
+    private String mPluginFilePath;
+
+    @Override
+    public String getVersion() {
+        return BuildConfig.VERSION_NAME;
+    }
+
+    @Override
+    public int getMinSupportCommVersion() {
+        return 1;
+    }
+
+    @Override
+    public int getPluginInterfaceVersion() {
+        return 1;
+    }
+
+    @Override
+    public Object execute(final ClassLoader classLoader, final String s, final byte[] bytes) {
+        // 具体的插件业务逻辑
+    }
+</code></pre>
+
+<h4 id="插件调试和打包">插件调试和打包</h4>
+
+<p>插件gradle plugin会自动生成插件调试打包相关的gradle task, 打开项目的gradle界面可以看到:<br />
+<img src="https://ykyp1q.bn.files.1drv.com/y4m9OVSGJzta33GehLJTh4gAoD6S2_1CerZQa6xx_Y3e-MIXjSOC_gW8KX6XUMIuxvtav7N2zy2vD9j37HV4PBt4xUiG_SgUXxxJUKNM86OgAcfegXsJ7EElM2TTIR4uHv6kW35-9ypzAIWzMppwWyq9nS7YSdlAE3QI6Iy1t9RBVsTuKbrqvIBTAKFIC7HVRm2bcmETJdDDGqvcCWuT6BdoA?width=293&amp;height=403&amp;cropmode=none" alt="plugin gradle tasks" /><br />
+* <strong>txz_plugin_build</strong>下是插件build tasks, 用于项目编译和校验文件生成等<br />
+* <strong>txz_plugin_release</strong>下是插件打包tasks, 如图为分别对应debug和release两个buildType的打包task, 打包结果会被输出至插件项目下的output目录(若在build.gradle配置了输出路径会输出到指定路径下)
+* <strong>txz_plugin_test</strong>下是插件测试tasks, 用于插件的调试, 执行task会自动对指定buildType进行编译, 并将对应的编译结果push到设备的插件测试临时目录(/sdcard/txz/plugin/com.txznet.txz/), 如果配置了重启宿主的话, 最后会执行kill宿主进程进行装载(adb shell am force-stop $hostPackageName)
+* 对应的task可以直接双击运行, 也可以通过命令行进行调用, 如</p>
+
+<pre><code>// bat下打包插件
+../gradlew :TXZAdPlugin:assemblePluginRelease
+</code></pre>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="http://blog.jayl.me/">Jayl&#39;s blog</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="http://blog.jayl.me/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="http://blog.jayl.me/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+
