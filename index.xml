@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jayl&#39;s blog</title>
-    <link>http://blog.jayl.me/</link>
+    <link>https://blog.jayl.me/</link>
     <description>Recent content on Jayl&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 11 Jun 2019 20:28:14 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.jayl.me/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.jayl.me/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>TXZ插件开发说明</title>
-      <link>http://blog.jayl.me/txz%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E/</link>
+      <link>https://blog.jayl.me/txz%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E/</link>
       <pubDate>Tue, 11 Jun 2019 20:28:14 +0800</pubDate>
       
-      <guid>http://blog.jayl.me/txz%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E/</guid>
+      <guid>https://blog.jayl.me/txz%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E/</guid>
       <description>TXZ插件开发文档 开发流程 新建插件项目  在开发分支下新建插件项目, 添加对TXZ_PLUGIN_SDK.jar的依赖
 compileOnly files(&#39;libs/TXZ_PLUGIN_SDK.jar&#39;)
 注: 不要添加对TXZComm的直接依赖, 避免误用TXZComm内被混淆的接口导致运行时的异常
