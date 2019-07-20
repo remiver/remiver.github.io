@@ -44,22 +44,15 @@
 
 <article class="first-entry">
   <header class="entry-header">
-    <h2>TXZ插件开发说明</h2>
+    <h2>Dart Note</h2>
   </header>
   <section class="entry-content">
-   <p>TXZ插件开发文档 开发流程 新建插件项目  在开发分支下新建插件项目, 添加对TXZ_PLUGIN_SDK.jar的依赖
-compileOnly files(&#39;libs/TXZ_PLUGIN_SDK.jar&#39;)
-注: 不要添加对TXZComm的直接依赖, 避免误用TXZComm内被混淆的接口导致运行时的异常
-注2: TXZ_PLUGIN_SDK.jar的依赖使用CompileOnly方式, 不打入插件包, 插件需要引用其他外部类库时根据需要自行选择.
- 修改插件项目编译配置(build.gradle)
-插件项目尽量与TXZCore使用同样的编译工具版本进行打包, 避免某些奇怪的问题, 另外, 建议使用默认的debug和release两个buildType, debug用于调试, release用于集成测试和最终打包.
-参考:
-android { compileSdkVersion rootProject.ext.compileSdkVersion buildToolsVersion rootProject.ext.buildToolsVersion lintOptions { abortOnError false } defaultConfig { minSdkVersion 15 rootProject.ext.targetSdkVersion versionCode 1 versionName &#34;1.0&#34; testInstrumentationRunner &#34;androidx.test.runner.AndroidJUnitRunner&#34; } buildTypes { debug { matchingFallbacks = [&#39;debug&#39;, &#39;release&#39;] minifyEnabled false buildConfigField(&#39;boolean&#39;, &#39;DEBUG_MODE&#39;, &#39;true&#39;) proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39; } release { matchingFallbacks = [&#39;debug&#39;, &#39;release&#39;] minifyEnabled true buildConfigField(&#39;boolean&#39;, &#39;DEBUG_MODE&#39;, &#39;false&#39;) proguardFiles getDefaultProguardFile(&#39;proguard-android....</p>
+   <p>...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.6.11</time>
+    <time>2019.7.20</time>
   </footer>
-  <a class="entry-link" href="https://blog.jayl.me/txz%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E/"></a>
+  <a class="entry-link" href="https://blog.jayl.me/dart-note/"></a>
 </article>
 
 
