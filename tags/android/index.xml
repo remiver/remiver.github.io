@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jayl&#39;s blog</title>
-    <link>https://blog.jayl.me/</link>
-    <description>Recent content on Jayl&#39;s blog</description>
+    <title>android on Jayl&#39;s blog</title>
+    <link>https://blog.jayl.me/tags/android/</link>
+    <description>Recent content in android on Jayl&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 16 Aug 2019 16:44:09 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.jayl.me/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.jayl.me/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
