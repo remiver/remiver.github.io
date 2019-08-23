@@ -2,25 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>android on Jayl&#39;s blog</title>
-    <link>https://blog.jayl.me/tags/android/</link>
+    <link>http://blog.jayl.me/tags/android/</link>
     <description>Recent content in android on Jayl&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Fri, 16 Aug 2019 16:44:09 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.jayl.me/tags/android/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.jayl.me/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Android gradle编译期资源动态生成正确姿势</title>
-      <link>https://blog.jayl.me/android-resource-gen-gradle/</link>
+      <link>http://blog.jayl.me/post/android-resource-gen-gradle/</link>
       <pubDate>Fri, 16 Aug 2019 16:44:09 +0800</pubDate>
       
-      <guid>https://blog.jayl.me/android-resource-gen-gradle/</guid>
-      <description>公司项目里有编译期代码和资源生成的需求, 之前一直是使用python(甚至还有bat)脚本去处理的, 为了让动态生成的资源参与编译, 先后使用过下面的方法:
- 生成到常规资源目录(默认src/main/java和src/main/res). 这样处理的话动态生成的资源会被版本管理系统检测到, 需要一一指定忽略, 或者提交时手动进行排除, 生成的东西多了很难管控, 经常有误提的情况发生. 生成到build下的自定义目录, 通过android gradle plugin提供的sourceSets配置, 将生成的资源目录进行添加. build目录是统一加了忽略配置的, 不会出现上面版本控制的问题, 但是在IDE里的项目结构中会将生成的代码当做普通代码对待, 与手写的代码混在一起, 看起来很难受.  恰好android编译的流程中是有动态生成资源的逻辑的, 比如BuildConfig.java, 生成的资源也会被IDE正确识别为generated resources, 与手写的代码是隔离开的, 于是抽了点时间对这部分的逻辑进行了下研究.
-代码生成 这部分没什么好说的, 可以通过自定义的gradle task直接进行处理, 举个简单的例子:
-task genJavaCode() { doFirst { String fileContent = &amp;quot;&amp;quot;&amp;quot;// auto-generated code. DO NOT MODIFY! package me.jayl.demo.resgen; public class GeneratedClass { public static String getMessage() { return &amp;quot;message from GeneratedClass!&amp;quot;; } } &amp;quot;&amp;quot;&amp;quot; File genDir = new File( &amp;quot;${project.</description>
+      <guid>http://blog.jayl.me/post/android-resource-gen-gradle/</guid>
+      <description>公司项目里有编译期代码和资源生成的需求, 之前一直是使用python(甚至还有bat)脚本去处理的, 为了让动态生成的资源参与编译, 先后使用过下</description>
     </item>
     
   </channel>

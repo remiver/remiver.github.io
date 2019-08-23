@@ -1,46 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml-stylesheet type="text/xsl" href="http://blog.jayl.me/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.jayl.me/android-resource-gen-gradle/</loc>
+    <loc>http://blog.jayl.me/tags/android/</loc>
     <lastmod>2019-08-16T16:44:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.jayl.me/categories/</loc>
+    <loc>http://blog.jayl.me/post/android-resource-gen-gradle/</loc>
     <lastmod>2019-08-16T16:44:09+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.jayl.me/</loc>
+    <loc>http://blog.jayl.me/categories/</loc>
     <lastmod>2019-08-16T16:44:09+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.jayl.me/tags/</loc>
+    <loc>http://blog.jayl.me/categories/dev/</loc>
     <lastmod>2019-08-16T16:44:09+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.jayl.me/tags/android/</loc>
+    <loc>http://blog.jayl.me/tags/gradle/</loc>
     <lastmod>2019-08-16T16:44:09+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.jayl.me/categories/dev/</loc>
+    <loc>http://blog.jayl.me/</loc>
     <lastmod>2019-08-16T16:44:09+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.jayl.me/tags/gradle/</loc>
+    <loc>http://blog.jayl.me/post/</loc>
     <lastmod>2019-08-16T16:44:09+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.jayl.me/tags/</loc>
+    <lastmod>2019-08-16T16:44:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>

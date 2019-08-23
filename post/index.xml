@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Jayl&#39;s blog</title>
+    <link>http://blog.jayl.me/post/</link>
+    <description>Recent content in Posts on Jayl&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 16 Aug 2019 16:44:09 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.jayl.me/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Android gradle编译期资源动态生成正确姿势</title>
+      <link>http://blog.jayl.me/post/android-resource-gen-gradle/</link>
+      <pubDate>Fri, 16 Aug 2019 16:44:09 +0800</pubDate>
+      
+      <guid>http://blog.jayl.me/post/android-resource-gen-gradle/</guid>
+      <description>公司项目里有编译期代码和资源生成的需求, 之前一直是使用python(甚至还有bat)脚本去处理的, 为了让动态生成的资源参与编译, 先后使用过下</description>
+    </item>
+    
+  </channel>
+</rss>
