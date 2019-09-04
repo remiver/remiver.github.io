@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-08-16T16:44:09&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-16T16:44:09&#43;08:00" />
-<meta itemprop="wordCount" content="2286">
+<meta itemprop="wordCount" content="2291">
 
 
 
@@ -269,7 +269,7 @@
     <span class="kt">void</span> <span class="nf">registerJavaGeneratingTask</span><span class="p">(</span><span class="nd">@NonNull</span> <span class="n">Task</span> <span class="nf">task</span><span class="p">,</span> <span class="nd">@NonNull</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span> <span class="nf">sourceFolders</span><span class="p">);</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>关于Variant的信息这里就不详细说明了, 可以简单的理解成每个Variant对应了android编译时的一个完整构建, 我们在build.gradle指定的那些flavor(debug, release和其他自定义的flavor)都对应着一个Variant实例.</p>
+<p>关于Variant的信息这里就不详细说明了, 可以简单的理解成每个Variant对应了android编译时的一个完整构建, 我们在build.gradle指定的那些flavor和其他编译类型定义(debug/release/test等)的组合都对应着一个Variant实例.</p>
 
 <p>有了对应的接口就好说了, 我们可以遍历编译期的每个Variant, 将代码生成对应的task和生成路径进行注册:</p>
 <div class="highlight"><div class="chroma">
